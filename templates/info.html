@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div id="h1">
+		<h1><b>Welcome to Twitter Sentiment Analysis</b> </h1>
+	</div>
+
+	<form action={{ url_for("analyse") }} method='post'>
+			Enter a Keyword/term to search : <input type=text name=keyword></input><br><br>
+			Number of Tweets : <input type=text name=number></input><br><br>
+			<button>submit</button>
+			
+		</form>
+
+	
+{% endblock %}

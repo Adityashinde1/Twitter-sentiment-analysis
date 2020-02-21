@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div id="h1">
+		<h1><b>Welcome to Twitter Sentiment Analysis</b> </h1>
+	</div>
+
+	<h2>Positive : {{ data['positive'] }} %</h2><br>
+	<h2>Negative : {{ data['negative'] }} %</h2><br>
+	<h2>Neutral : {{ data['neutral']  }} %</h2><br>
+	<div id="h2">
+		<h2>Sentiment for {{data['keyword'] }} on last {{data['number'] }} tweets : <br>
+		{{ data['result'] }} </h2>
+	</div>
+    <div class="container" width="-200" height="-200" id="h3">
+		<canvas id="myChart" > </canvas>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+    			type: 'pie',
+    			data: {
+        			labels: ['Positive', 'Negative', 'Neutral'],
+        			datasets: [{
+
+            			data: [{{ data['positive'] }},
+            		       	{{ data['negative'] }},
+            		       	{{ data['neutral'] }} ],
+            			backgroundColor: [
+                				'Green',
+                				'Red',
+                				'Blue'	
+            			]
+           			}]
+
+    			},
+    		
+			});
+		</script>
+	</div>
+	<div class="container1">
+		<h3>Tweets : <br><br>
+			<ol>
+				{% for tweet in data['tweets'] %}
+					<li>{{ tweet }} </li>	
+				{% endfor %}
+			</ol>
+		</h3>
+	</div>
+{% endblock %}
