@@ -29,8 +29,10 @@ class Analysis(db.Model):
     result = db.Column(db.String(50))
 
 
-def percentage(part, whole):
-    return float(part) / float(whole) * 100
+
+
+
+
 
 
 def convert(s):
@@ -106,6 +108,8 @@ def analyse():
     db.session.add(entry)
     db.session.commit()
     return render_template('analysis.html', data=data)
+
+
 
 
 if __name__ == '__main__':
