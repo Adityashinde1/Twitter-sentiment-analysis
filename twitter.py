@@ -5,10 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 
-consumer_key = '3SjtHrYo9fhZPUxdKofbXElG7'
-consumer_secret = 'E2wsVRqQXJkgTsrkBo31nChCEegg0hU0GMuk2aKlcU25rgoma6'
-access_token = '1127097032508755969-JhMKRDJMzgmh287WB2nJ8cZ1zPgHLu'
-access_token_secret = 'V9audBEFFxmZuHGQvWA0nd8NZct6a9zhwLlpsdo9Nx8U7'
+consumer_key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+consumer_secret = xxxxxxxxxxxxxxxxxxxxxxxxx
+access_token = xxxxxxxxxxxxxxxxxxxxxxxxxx
+access_token_secret = xxxxxxxxxxxxxxxx
 
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -29,9 +29,8 @@ class Analysis(db.Model):
     result = db.Column(db.String(50))
 
 
-
-
-
+def percentage(part, whole):
+    return float(part) / float(whole) * 100
 
 
 
